@@ -216,7 +216,7 @@ if __name__ == '__main__':
     print(ratings.sort_values())
 
     ranked_df = new_df[ratings[ratings>0.5].sort_values(ascending=False).index]
-    ranked_df.to_json('ranked.json')
+    ranked_df.to_json('ranked.json', indent=2)
     print(ranked_df)
 
     # import sys
@@ -299,4 +299,4 @@ if __name__ == '__main__':
         pd.DataFrame(change_log).to_csv('changelog.csv',index=False,header=False, mode='a')
 
     # new data now becomes old
-    new_df.to_json('old_data.json')
+    new_df.to_json('old_data.json', indent=2)
