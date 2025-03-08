@@ -9,7 +9,7 @@ import pandas as pd
 # }
 
 # df = pd.DataFrame(data).T  # Stores as rows
-df = pd.read_json('ranked.json')
+df = pd.read_json('https://github.com/jessejcarter/mypinballmap/raw/refs/heads/main/ranked.json')
 
 # Function to style the DataFrame
 def style_table(df):
@@ -37,7 +37,7 @@ if items_selected:
 
 # Display changelog
 # read in log file and display all changes, newest first
-logdf = pd.read_csv('changelog.csv', names=['date','category','location','machines']).iloc[::-1]
+logdf = pd.read_csv('https://github.com/jessejcarter/mypinballmap/raw/refs/heads/main/changelog.csv', names=['date','category','location','machines']).iloc[::-1]
 import ast
 for i in logdf.index.values:
     row = logdf.iloc[i]
