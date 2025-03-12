@@ -100,10 +100,12 @@ def get_locations_with_machine_id(id):
 
 if __name__ == '__main__':
     # get all locations in Pittsburgh
+    print('fetching Pittsburgh locations...')
     locations = get_all_locations_in_region('Pittsburgh')
     print(f'Found {len(locations)} locations')
 
     # get location ids for RBS tournament locations
+    print('parsing tournament locations...')
     tournament_locations = ['Lawrence Hall','Highline','Rival']
     tournament_location_ids = list()    
     for tloc in tournament_locations:
@@ -113,10 +115,12 @@ if __name__ == '__main__':
         print(f"found {name}, id: {id}, distance: {get_distance_to_location(id):.1f} miles")
         
     # get machine data for ALL machines
+    print('fetching ALL machine data...')
     machine_data = get_machine_data()
 
     # get machine group ids for all machines at tournament locations
     # machine group id is a way to identify several varients (Pro, Premium, ...) with one id
+    print('processing tournament machines...')
     machine_group_ids = list()
     location_dict = {loc['id']:loc for loc in locations}
     for id in tournament_location_ids:
@@ -133,7 +137,8 @@ if __name__ == '__main__':
     # some extra machines I'm interested in
     extra_machines = ['sword of rage','madness','attack from mars','tales of the arabian']
 
-    # get locations for all machines identified above
+    # get ids for all machines identified above
+    print('processing additional interesting machines...')
     machine_ids = list()
     for name in extra_machines:
         group_id = get_probable_group_id_where_name_contains(name)
@@ -146,14 +151,16 @@ if __name__ == '__main__':
                 continue
             machine_ids.append(machines[0]['id'])
 
-
+    print('machine group ids:')
     print(machine_group_ids)
+    print('machine ids (no group):')
     print(machine_ids)
 
     # start keeping track of which machines are at what locations
     machine_location_dict = dict()
 
     # loop over machine groups and get local locations which have each machine
+    print('looking for local locations which have each machine group id...')
     for id in machine_group_ids:
         name = remove_delimited_text(get_machine_by_group_id(id)['name']).strip()
         if name not in machine_location_dict.keys():
@@ -164,9 +171,10 @@ if __name__ == '__main__':
             if miles > 15:
                 continue
             print(f"  {loc['name']} ({miles:.0f} miles)")
-            machine_location_dict[name].append(loc['name'].strip())
+            machine_location_dict[name].append(loc['id'])
 
     # again for machines without group id
+    print('looking for local locations which have each machine id...')
     for id in machine_ids:
         name = get_machine_by_id(id)['name'].strip()
         if name not in machine_location_dict.keys():
@@ -177,12 +185,13 @@ if __name__ == '__main__':
             if miles > 15:
                 continue
             print(f"  {loc['name']} ({miles:.0f} miles)")
-            machine_location_dict[name].append(loc['name'].strip())
+            machine_location_dict[name].append(loc['id'])
 
+    print('machines and locations:')
     pprint(machine_location_dict)
 
     # compute True/False for each machine/location combination store into a pandas DataFrame
-    all_locations = sorted(set(loc for locs in machine_location_dict.values() for loc in locs))
+    all_locations = sorted(set(locid for locs in machine_location_dict.values() for locid in locs))
 
     import pandas as pd
     new_df = pd.DataFrame(
@@ -190,15 +199,16 @@ if __name__ == '__main__':
         index=machine_location_dict.keys()
     )
     # new_df.to_json('new_data.json')
+    print('all combinations:')
+    print(new_df.rename(columns={col:get_location_name(col) for col in new_df.columns}))  # show location names instead of ids for printing/debugging
 
-   
     # generate location rankings to show only most promising locations
     ratings = pd.Series(index=new_df.columns)
 
     for col in new_df.columns:
         found_loc = False
         for location in locations:
-            if location['name'] == col:
+            if location['id'] == col:
                 found_loc = True
                 distance = get_distance_in_miles(location['lat'],location['lon'])
                 break
@@ -210,14 +220,15 @@ if __name__ == '__main__':
         rating = num_machines/distance
         ratings.loc[col] = rating
 
-        print(f"{col}, distance: {distance:.1f} miles, machines: {num_machines}, rating: {rating:.2f}")
+        print(f"id: {col}, name: {get_location_name(col)} distance: {distance:.1f} miles, machines: {num_machines}, rating: {rating:.2f}")
         for machine in machines:
             print('  ',machine)
-    print(ratings.sort_values())
+    # print(ratings.sort_values())
 
     ranked_df = new_df[ratings[ratings>0.5].sort_values(ascending=False).index]
+    print('locations arbitrarily ranked:')
+    print(ranked_df.rename(columns={col:get_location_name(col) for col in ranked_df.columns}))
     ranked_df.to_json('ranked.json', indent=2)
-    print(ranked_df)
 
     # import sys
     # sys.exit(0)
@@ -229,8 +240,7 @@ if __name__ == '__main__':
     # new_df.loc['JAWS','Cattivo'] = True
     # new_df.loc['Jurassic Park','Cattivo'] = True
     # new_df.drop(columns='Tiki Lounge', inplace=True)
-
-    print(new_df)
+    # print(new_df)
 
     # load old data to look for differences
     # df = pd.read_json('2025-03-05.json')  # eventually "old_data.json"
@@ -258,16 +268,18 @@ if __name__ == '__main__':
 
     # Report new stores
     for store in added_stores:
+        store_name = get_location_name(store)
         items_at_new_store = df_new.index[df_new[store]].tolist()
-        change_log.append({"date":date_string, "category":"add_location", "location":store, "machines":items_at_new_store})
+        change_log.append({"date":date_string, "category":"add_location", "location":store_name, "machines":items_at_new_store})
         for item in items_at_new_store:
-            print(f"A new location {store} is being tracked which has {item}.")
+            print(f"A new location {store_name} is being tracked which has {item}.")
 
     # Report removed stores
     for store in removed_stores:
+        store_name = get_location_name(store)
         items_at_old_store = df_old.index[df_old[store]].tolist()
-        print(f"Location {store} is no longer tracked, which had: {', '.join(items_at_old_store)}.")
-        change_log.append({"date":date_string, "category":"remove_location", "location":store, "machines":items_at_old_store})
+        print(f"Location {store_name} is no longer tracked, which had: {', '.join(items_at_old_store)}.")
+        change_log.append({"date":date_string, "category":"remove_location", "location":store_name, "machines":items_at_old_store})
 
     # process individual machine changes
     import numpy as np
@@ -280,11 +292,13 @@ if __name__ == '__main__':
             # print('  already handled', location)
             continue
         if df_new.at[machine, location]:  # Now available
-            print(f"{machine} is now available at {location}.")
-            change_log.append({"date":date_string, "category":"add_machine", "location":location, "machines":[machine]})
+            store_name = get_location_name(location)
+            print(f"{machine} is now available at {store_name}.")
+            change_log.append({"date":date_string, "category":"add_machine", "location":store_name, "machines":[machine]})
         else:
-            print(f"{machine} is no longer available at {location}.")
-            change_log.append({"date":date_string, "category":"remove_machine", "location":location, "machines":[machine]})
+            store_name = get_location_name(location)
+            print(f"{machine} is no longer available at {store_name}.")
+            change_log.append({"date":date_string, "category":"remove_machine", "location":store_name, "machines":[machine]})
             
     # **Print results**
     # for change in changes_text:
