@@ -226,9 +226,10 @@ if __name__ == '__main__':
     # print(ratings.sort_values())
 
     ranked_df = new_df[ratings[ratings>0.5].sort_values(ascending=False).index]
+    ranked_df_with_names = ranked_df.rename(columns={col:get_location_name(col) for col in ranked_df.columns})
     print('locations arbitrarily ranked:')
-    print(ranked_df.rename(columns={col:get_location_name(col) for col in ranked_df.columns}))
-    ranked_df.to_json('ranked.json', indent=2)
+    print(ranked_df_with_names)
+    ranked_df_with_names.to_json('ranked.json', indent=2)
 
     # import sys
     # sys.exit(0)
