@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-
+st.set_page_config(layout="wide")
 # Sample Data
 # data = {
 #     'Store A': {'Apples': True, 'Bananas': True, 'Carrots': False},
@@ -13,13 +13,14 @@ df = pd.read_json('https://github.com/jessejcarter/mypinballmap/raw/refs/heads/m
 
 # Function to style the DataFrame
 def style_table(df):
-    return df.style.applymap(lambda x: 'background-color: lightgreen' if x else 'background-color: lightcoral')
+    return df.style.map(lambda x: 'background-color: lightgreen' if x else 'background-color: lightcoral')
 
 st.title("Pinball Availability Checker")
 
 # Styled table display
 st.write("### Pinball Availability Overview")
-st.dataframe(style_table(df))
+st.dataframe(style_table(df), height=int(650/18.*(df.index.size+1))+1, use_container_width=True)  # naive scaling ratio
+# st.table(style_table(df))  # best fit, bad formatting
 
 # Location selection
 st.subheader("Filter by Location or Machine")
