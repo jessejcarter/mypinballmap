@@ -34,7 +34,9 @@ for location in df.loc[machine_selected][df.loc[machine_selected]].index.tolist(
 items_selected = st.multiselect("Select one or more machines", df.index.tolist())
 if items_selected:
     filtered_locations = df.columns[df.loc[items_selected].all().tolist()]
-    st.write("Locations that have all selected machines:", filtered_locations)
+    st.write("Locations that have all selected machines:")
+    for location in filtered_locations.values:
+        st.markdown(f" - {location}")
 
 # Display changelog
 # read in log file and display all changes, newest first
