@@ -284,6 +284,25 @@
     "Attack From Mars":false,
     "Tales of the Arabian Nights":false
   },
+  "Remedy":{
+    "Teenage Mutant Ninja Turtles":false,
+    "Deadpool":false,
+    "The Uncanny X-Men":true,
+    "Foo Fighters":true,
+    "James Bond 007":false,
+    "The Mandalorian":false,
+    "Iron Maiden: Legacy of the Beast":false,
+    "JAWS":true,
+    "Godzilla":true,
+    "Stranger Things":false,
+    "John Wick":false,
+    "Avengers: Infinity Quest":false,
+    "Jurassic Park":false,
+    "Black Knight: Sword of Rage":false,
+    "Medieval Madness":true,
+    "Attack From Mars":false,
+    "Tales of the Arabian Nights":false
+  },
   "Helltown Brewing - Strip District":{
     "Teenage Mutant Ninja Turtles":false,
     "Deadpool":true,

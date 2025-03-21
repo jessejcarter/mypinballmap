@@ -58,8 +58,8 @@
   },
   "3158":{
     "Teenage Mutant Ninja Turtles":false,
-    "Deadpool":true,
-    "The Uncanny X-Men":false,
+    "Deadpool":false,
+    "The Uncanny X-Men":true,
     "Foo Fighters":true,
     "James Bond 007":false,
     "The Mandalorian":false,
@@ -71,7 +71,7 @@
     "Avengers: Infinity Quest":false,
     "Jurassic Park":false,
     "Black Knight: Sword of Rage":false,
-    "Medieval Madness":false,
+    "Medieval Madness":true,
     "Attack From Mars":false,
     "Tales of the Arabian Nights":false
   },
