@@ -201,7 +201,8 @@ if __name__ == '__main__':
     )
     # new_df.to_json('new_data.json')
     print('all combinations:')
-    print(new_df.rename(columns={col:get_location_name(col) for col in new_df.columns}))  # show location names instead of ids for printing/debugging
+    new_df_with_names = new_df.rename(columns={col:get_location_name(col) for col in new_df.columns})
+    print(new_df_with_names)  # show location names instead of ids for printing/debugging
 
     # generate location rankings to show only most promising locations
     ratings = pd.Series(index=new_df.columns)
@@ -226,8 +227,14 @@ if __name__ == '__main__':
             print('  ',machine)
     # print(ratings.sort_values())
 
+    # extra locations to include because these are all paid entry locations rather than pay-per-play
+    locations_to_include_in_rankings = ['Pinball PA', 'Pittsburgh Pinball Dojo', 'Pinball Perfection']
+
     ranked_df = new_df[ratings[ratings>0.5].sort_values(ascending=False).index]
     ranked_df_with_names = ranked_df.rename(columns={col:get_location_name(col) for col in ranked_df.columns})
+    for extra_loc in locations_to_include_in_rankings:
+        if extra_loc not in ranked_df_with_names.columns and extra_loc in new_df_with_names.columns:
+            ranked_df_with_names = pd.concat([ranked_df_with_names, new_df_with_names[extra_loc]], axis=1)
     print('locations arbitrarily ranked:')
     print(ranked_df_with_names)
     ranked_df_with_names.to_json('ranked.json', indent=2)

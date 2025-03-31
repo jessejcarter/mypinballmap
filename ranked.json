@@ -458,5 +458,25 @@
     "Medieval Madness":false,
     "Attack From Mars":true,
     "Tales of the Arabian Nights":false
+  },
+  "Pinball PA":{
+    "Teenage Mutant Ninja Turtles":false,
+    "Deadpool":false,
+    "The Uncanny X-Men":false,
+    "Foo Fighters":false,
+    "James Bond 007":false,
+    "The Mandalorian":false,
+    "Iron Maiden: Legacy of the Beast":true,
+    "JAWS":false,
+    "Godzilla":false,
+    "Stranger Things":false,
+    "John Wick":false,
+    "Avengers: Infinity Quest":false,
+    "Jurassic Park":false,
+    "Star Wars":false,
+    "Black Knight: Sword of Rage":true,
+    "Medieval Madness":true,
+    "Attack From Mars":false,
+    "Tales of the Arabian Nights":false
   }
 }
