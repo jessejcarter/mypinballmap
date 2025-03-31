@@ -136,6 +136,7 @@ if __name__ == '__main__':
 
     # some extra machines I'm interested in
     extra_machines = ['sword of rage','madness','attack from mars','tales of the arabian']
+    max_distance = 20  # max distance in miles
 
     # get ids for all machines identified above
     print('processing additional interesting machines...')
@@ -168,7 +169,7 @@ if __name__ == '__main__':
         print(name)
         for loc in get_locations_with_machine_group_id(id):
             miles = get_distance_in_miles(loc['lat'],loc['lon'])
-            if miles > 15:
+            if miles > max_distance:
                 continue
             print(f"  {loc['name']} ({miles:.0f} miles)")
             machine_location_dict[name].append(loc['id'])
@@ -182,7 +183,7 @@ if __name__ == '__main__':
         print(name)
         for loc in get_locations_with_machine_id(id):
             miles = get_distance_in_miles(loc['lat'],loc['lon'])
-            if miles > 15:
+            if miles > max_distance:
                 continue
             print(f"  {loc['name']} ({miles:.0f} miles)")
             machine_location_dict[name].append(loc['id'])
