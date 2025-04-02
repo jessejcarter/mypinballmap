@@ -659,26 +659,6 @@
     "Attack From Mars":false,
     "Tales of the Arabian Nights":false
   },
-  "21392":{
-    "Teenage Mutant Ninja Turtles":false,
-    "Deadpool":false,
-    "The Uncanny X-Men":false,
-    "Foo Fighters":false,
-    "James Bond 007":false,
-    "The Mandalorian":false,
-    "Iron Maiden: Legacy of the Beast":false,
-    "JAWS":false,
-    "Godzilla":false,
-    "Stranger Things":false,
-    "John Wick":false,
-    "Avengers: Infinity Quest":false,
-    "Jurassic Park":false,
-    "Star Wars":true,
-    "Black Knight: Sword of Rage":false,
-    "Medieval Madness":false,
-    "Attack From Mars":false,
-    "Tales of the Arabian Nights":false
-  },
   "21554":{
     "Teenage Mutant Ninja Turtles":true,
     "Deadpool":false,
@@ -937,6 +917,26 @@
     "Black Knight: Sword of Rage":false,
     "Medieval Madness":false,
     "Attack From Mars":false,
+    "Tales of the Arabian Nights":false
+  },
+  "25957":{
+    "Teenage Mutant Ninja Turtles":false,
+    "Deadpool":false,
+    "The Uncanny X-Men":false,
+    "Foo Fighters":false,
+    "James Bond 007":false,
+    "The Mandalorian":false,
+    "Iron Maiden: Legacy of the Beast":false,
+    "JAWS":false,
+    "Godzilla":false,
+    "Stranger Things":true,
+    "John Wick":false,
+    "Avengers: Infinity Quest":false,
+    "Jurassic Park":false,
+    "Star Wars":false,
+    "Black Knight: Sword of Rage":false,
+    "Medieval Madness":false,
+    "Attack From Mars":true,
     "Tales of the Arabian Nights":false
   }
 }
