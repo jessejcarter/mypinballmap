@@ -208,6 +208,25 @@
     "Attack From Mars":false,
     "Tales of the Arabian Nights":false
   },
+  "Ice Castle":{
+    "Teenage Mutant Ninja Turtles":false,
+    "Deadpool":false,
+    "The Uncanny X-Men":false,
+    "Foo Fighters":false,
+    "James Bond 007":false,
+    "JAWS":false,
+    "Venom":false,
+    "Godzilla":false,
+    "John Wick":false,
+    "Avengers: Infinity Quest":false,
+    "Jurassic Park":true,
+    "Stranger Things":false,
+    "Star Wars":false,
+    "Black Knight: Sword of Rage":false,
+    "Medieval Madness":false,
+    "Attack From Mars":false,
+    "Tales of the Arabian Nights":false
+  },
   "Apis Mead & Winery":{
     "Teenage Mutant Ninja Turtles":false,
     "Deadpool":false,
