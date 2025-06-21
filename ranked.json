@@ -197,14 +197,14 @@
     "Attack From Mars":false,
     "Tales of the Arabian Nights":false
   },
-  "Kickback Pinball Cafe":{
-    "Teenage Mutant Ninja Turtles":false,
-    "Deadpool":false,
+  "Meadows Lanes Bowling":{
+    "Teenage Mutant Ninja Turtles":true,
+    "Deadpool":true,
     "The Uncanny X-Men":true,
-    "Foo Fighters":false,
-    "James Bond 007":false,
+    "Foo Fighters":true,
+    "James Bond 007":true,
     "JAWS":true,
-    "Venom":false,
+    "Venom":true,
     "Godzilla":true,
     "King Kong: Myth of Terror Island":true,
     "Star Wars":false,
@@ -215,14 +215,14 @@
     "Attack From Mars":false,
     "Tales of the Arabian Nights":false
   },
-  "Meadows Lanes Bowling":{
-    "Teenage Mutant Ninja Turtles":true,
+  "Kickback Pinball Cafe":{
+    "Teenage Mutant Ninja Turtles":false,
     "Deadpool":false,
     "The Uncanny X-Men":true,
-    "Foo Fighters":true,
-    "James Bond 007":true,
+    "Foo Fighters":false,
+    "James Bond 007":false,
     "JAWS":true,
-    "Venom":true,
+    "Venom":false,
     "Godzilla":true,
     "King Kong: Myth of Terror Island":true,
     "Star Wars":false,
