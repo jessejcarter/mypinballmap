@@ -158,7 +158,7 @@
     "Star Wars":true,
     "Black Knight: Sword of Rage":true,
     "Medieval Madness":false,
-    "Attack From Mars":false,
+    "Attack From Mars":true,
     "Tales of the Arabian Nights":false
   },
   "10790":{
@@ -283,7 +283,7 @@
     "Stranger Things":false,
     "Star Wars":false,
     "Black Knight: Sword of Rage":false,
-    "Medieval Madness":true,
+    "Medieval Madness":false,
     "Attack From Mars":false,
     "Tales of the Arabian Nights":false
   },
