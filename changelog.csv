@@ -508,3 +508,5 @@
 2025-09-26,add_machine,Helltown Brewing - Strip District,['Foo Fighters']
 2025-09-26,add_machine,Helltown Brewing - Strip District,['Avengers: Infinity Quest']
 2025-09-28,add_machine,The Vapor Cloud,['James Bond 007']
+2025-09-30,remove_machine,Sly Fox PGH Brewery at the Highline,['Deadpool']
+2025-09-30,add_machine,Rival,['Deadpool']

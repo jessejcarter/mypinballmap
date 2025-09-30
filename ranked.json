@@ -1,7 +1,7 @@
 {
   "Rival":{
     "Teenage Mutant Ninja Turtles":false,
-    "Deadpool":false,
+    "Deadpool":true,
     "The Uncanny X-Men":false,
     "Foo Fighters":false,
     "James Bond 007":false,
@@ -125,24 +125,6 @@
     "Attack From Mars":false,
     "Tales of the Arabian Nights":false
   },
-  "Sly Fox PGH Brewery at the Highline":{
-    "Teenage Mutant Ninja Turtles":false,
-    "Deadpool":true,
-    "The Uncanny X-Men":true,
-    "Foo Fighters":false,
-    "James Bond 007":false,
-    "Venom":true,
-    "Godzilla":true,
-    "King Kong: Myth of Terror Island":true,
-    "Avengers: Infinity Quest":false,
-    "Jurassic Park":false,
-    "Stranger Things":false,
-    "Star Wars":false,
-    "Black Knight: Sword of Rage":false,
-    "Medieval Madness":false,
-    "Attack From Mars":false,
-    "Tales of the Arabian Nights":false
-  },
   "Velum Fermentation":{
     "Teenage Mutant Ninja Turtles":true,
     "Deadpool":false,
@@ -195,6 +177,24 @@
     "Black Knight: Sword of Rage":true,
     "Medieval Madness":true,
     "Attack From Mars":true,
+    "Tales of the Arabian Nights":false
+  },
+  "Sly Fox PGH Brewery at the Highline":{
+    "Teenage Mutant Ninja Turtles":false,
+    "Deadpool":false,
+    "The Uncanny X-Men":true,
+    "Foo Fighters":false,
+    "James Bond 007":false,
+    "Venom":true,
+    "Godzilla":true,
+    "King Kong: Myth of Terror Island":true,
+    "Avengers: Infinity Quest":false,
+    "Jurassic Park":false,
+    "Stranger Things":false,
+    "Star Wars":false,
+    "Black Knight: Sword of Rage":false,
+    "Medieval Madness":false,
+    "Attack From Mars":false,
     "Tales of the Arabian Nights":false
   },
   "Coop DeVille":{
