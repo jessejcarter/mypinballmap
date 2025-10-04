@@ -175,22 +175,6 @@
     "Attack From Mars":true,
     "Tales of the Arabian Nights":true
   },
-  "Coop DeVille":{
-    "Teenage Mutant Ninja Turtles":false,
-    "Deadpool":false,
-    "The Uncanny X-Men":true,
-    "Foo Fighters":false,
-    "James Bond 007":false,
-    "Avengers: Infinity Quest":true,
-    "Jurassic Park":false,
-    "Stranger Things":true,
-    "Star Wars":false,
-    "Godzilla":false,
-    "Black Knight: Sword of Rage":true,
-    "Medieval Madness":false,
-    "Attack From Mars":false,
-    "Tales of the Arabian Nights":false
-  },
   "Lawrence Hall":{
     "Teenage Mutant Ninja Turtles":true,
     "Deadpool":true,
